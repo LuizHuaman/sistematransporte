@@ -1,0 +1,143 @@
+-- Estructura de tabla para la tabla conductor
+
+CREATE TABLE IF NOT EXISTS conductor(
+  id INT(11) NOT NULL,
+  nombre VARCHAR(255) NOT NULL,
+  licencia VARCHAR(255) NOT NULL,
+  id_tipo_conductor INT(11) NOT NULL,
+  id_vehiculo INT(11) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+
+-- Estructura de tabla para la tabla contrato
+
+CREATE TABLE IF NOT EXISTS contrato(
+  id INT(11) NOT NULL,
+  id_vehiculo INT(11) NOT NULL,
+  id_conductor INT(11) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+
+-- Estructura de tabla para la tabla ruta
+
+CREATE TABLE IF NOT EXISTS ruta(
+  id INT(11) NOT NULL,
+  id_vehiculo INT(11) NOT NULL,
+  estacion VARCHAR(255) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+
+-- Estructura de tabla para la tabla tipo_conductor
+
+CREATE TABLE IF NOT EXISTS tipo_conductor(
+  id INT(11) NOT NULL,
+  nombre VARCHAR(255) CHARACTER SET utf8 NOT NULL
+) ENGINE = InnoDB AUTO_INCREMENT = 3 DEFAULT CHARSET = latin1;
+
+
+-- Volcado de datos para la tabla tipo_conductor
+
+INSERT INTO tipo_conductor(id, nombre) VALUES(1, 'Taxista'),(2, 'ChoferBus');
+
+
+-- Estructura de tabla para la tabla tipo_vehiculo
+
+CREATE TABLE IF NOT EXISTS tipo_vehiculo(
+  id INT(11) NOT NULL,
+  nombre VARCHAR(255) NOT NULL
+) ENGINE = InnoDB AUTO_INCREMENT = 3 DEFAULT CHARSET = utf8;
+
+
+-- Volcado de datos para la tabla tipo_vehiculo
+
+INSERT INTO tipo_vehiculo(id,nombre) VALUES(1, 'Taxista'),(2, 'Bus');
+
+-- Estructura de tabla para la tabla vehiculo
+
+CREATE TABLE IF NOT EXISTS vehiculo(
+  id INT(11) NOT NULL,
+  matricula VARCHAR(255) NOT NULL,
+  marca VARCHAR(255) NOT NULL,
+  modelo VARCHAR(255) NOT NULL,
+  anio INT(11) NOT NULL,
+  id_tipo_vehiculo INT(11) NOT NULL
+) ENGINE = InnoDB AUTO_INCREMENT = 6 DEFAULT CHARSET = utf8;
+
+
+-- Índices para tablas volcadas
+
+-- Indices de la tabla conductor
+
+ALTER TABLE
+  conductor ADD PRIMARY KEY(id);
+
+
+-- Indices de la tabla contrato
+
+ALTER TABLE
+  contrato ADD PRIMARY KEY(id);
+
+
+-- Indices de la tabla ruta
+
+ALTER TABLE
+  ruta ADD PRIMARY KEY(id);
+
+
+-- Indices de la tabla tipo_conductor
+
+ALTER TABLE
+  tipo_conductor ADD PRIMARY KEY(id);
+
+
+-- Indices de la tabla tipo_vehiculo
+
+ALTER TABLE
+  tipo_vehiculo ADD PRIMARY KEY(id);
+
+
+-- Indices de la tabla vehiculo
+
+ALTER TABLE
+  vehiculo ADD PRIMARY KEY(id);
+
+
+-- AUTO_INCREMENT de las tablas volcadas
+
+-- AUTO_INCREMENT de la tabla conductor
+
+ALTER TABLE
+  conductor MODIFY id INT(11) NOT NULL AUTO_INCREMENT;
+
+
+-- AUTO_INCREMENT de la tabla contrato
+
+ALTER TABLE
+  contrato MODIFY id INT(11) NOT NULL AUTO_INCREMENT;
+
+
+-- AUTO_INCREMENT de la tabla ruta
+
+ALTER TABLE
+  ruta MODIFY id INT(11) NOT NULL AUTO_INCREMENT;
+
+
+-- AUTO_INCREMENT de la tabla tipo_conductor
+
+ALTER TABLE
+  tipo_conductor MODIFY id INT(11) NOT NULL AUTO_INCREMENT,
+  AUTO_INCREMENT = 3;
+
+
+-- AUTO_INCREMENT de la tabla tipo_vehiculo
+
+ALTER TABLE
+  tipo_vehiculo MODIFY id INT(11) NOT NULL AUTO_INCREMENT,
+  AUTO_INCREMENT = 3;
+
+
+-- AUTO_INCREMENT de la tabla vehiculo
+
+ALTER TABLE
+  vehiculo MODIFY id INT(11) NOT NULL AUTO_INCREMENT,
+  AUTO_INCREMENT = 6;
